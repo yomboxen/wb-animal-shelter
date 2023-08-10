@@ -25,7 +25,7 @@ class Cat extends Animal {
     }
 
     greet() {
-        console.log(`Meow, I'm ${this.name} the ${this.species}`)
+        console.log(`Meow, I'm ${this.name} the cat`)
     }
 
     feed(){
@@ -41,7 +41,7 @@ class Dog extends Animal {
     }
     
     greet() {
-        console.log(`Meow, I'm ${this.name} the ${this.species}`)
+        console.log(`Woof, I'm ${this.name} the dog`)
     }
 
     feed(){
@@ -72,12 +72,12 @@ class AnimalShelter {
 const shelter = new AnimalShelter()
 
 for(const a of animalData) {
+    let animal;
     if(a.species === 'cat') {
-        const cat = new Cat(a.name, a.color, a.hunger)
+        animal = new Cat(a.name, a.color, a.hunger)
     } else if(a.species === 'dog') {
-        const dog = new Dog(a.name, a.color, a.hunger)
-    }
-    const animal = new Animal(a.name, a.species, a.color, a.hunger)
+        animal = new Dog(a.name, a.color, a.hunger)
+    } else {animal = new Animal(a.name, a.species, a.color, a.hunger)}
     shelter.addAnimal(animal)
 }
 
